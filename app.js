@@ -1,17 +1,19 @@
 /**
  * Module dependencies.
  */
-var express = require('express')
+const express = require('express')
 ,	path = require('path')
 ,	streams = require('./app/streams.js')();
 
-var favicon = require('serve-favicon')
+const favicon = require('serve-favicon')
 ,	logger = require('morgan')
 ,	methodOverride = require('method-override')
 ,	bodyParser = require('body-parser')
 ,	errorHandler = require('errorhandler');
 
-var app = express();
+const app = express();
+require("./app/repos/knex");
+const controller = require("./app/controllers/StudentController");
 
 // all environments
 app.set('port', process.env.PORT || 8080);
